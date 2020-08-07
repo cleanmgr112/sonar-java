@@ -737,10 +737,6 @@ public class CFG implements ControlFlowGraph {
   }
 
   private void buildSwitchExpression(SwitchExpressionTree switchExpressionTree, Tree terminator) {
-    if (terminator.is(Tree.Kind.SWITCH_EXPRESSION)) {
-      // force a switch expression in the current block
-      currentBlock.elements.add(terminator);
-    }
     Block switchSuccessor = currentBlock;
     // process condition
     currentBlock = createBlock();
